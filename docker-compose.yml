@@ -1,0 +1,19 @@
+    version: "2.1"
+    services:
+      cis5510:
+        image: cis5510
+        build: .
+        container_name: cis_5510
+        environment:
+          - PUID=1000  # id mask for files in mounted volumes
+          - PGID=1000  # group mask for files in mounted volumes
+          - TZ=America/New_York  # Closest canonical TZ to Philladelphia
+          - PASSWORD=abc  # password for HTML login (matches user password)
+          - TITLE=CIS5510  # Title of Kasm session
+        volumes:
+          - ./home:/config  # Home directory available locally in same directory as "docker-compose.yml"
+        ports:
+          - 3000:3000  # HTML5 session port accessible at localhost:3000 or 127.0.0.1:3000
+        shm_size: "2gb"  # Container RAM, optional but set to 1GB or higher to prevent browser crashes
+        restart: unless-stopped  # Container will automatically restart if it crashes
+        

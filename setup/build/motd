@@ -1,0 +1,12 @@
+_____________________________________________________________________________________________________
+Your CIS-551 environments is now complete. Some tips for interacting with the container
+
+To connect to the desktop GUI open an HTML5 capable web-browser (any of the common browsers will work)
+and navigate to "localhost:3000" or "127.0.0.1:3000". The username:password is "abc:abc" if required
+
+To connect to the terminal from your computer open a new command prompt/terminal and type "docker ps"
+use the "CONTAINER ID" field in the command: "docker exec -it --user abc <your CONTAINER ID> bash"
+
+To stop the container when you are finished, type CTRL-C or click stop in Docker desktop
+_____________________________________________________________________________________________________
+if you see the error "_XSERVTransmkdir: ERROR: euid != 0", you can safely ignore it.

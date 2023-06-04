@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+
+import sys
+import hashlib
+
+if len(sys.argv) < 2:
+    print("Usage: %s <PennKey>" % sys.argv[0], file=sys.stderr)
+    sys.exit(1)
+
+with open("cookie", "w") as file:
+    digest = hashlib.sha1('|'.join(sorted(sys.argv[1:])).encode('utf-8'))
+    print(int(digest.hexdigest(),16) % 0x8FFF, file=file)
